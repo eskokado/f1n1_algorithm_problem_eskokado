@@ -14,4 +14,10 @@ describe "Binary Search" do
     index = binarySearch(array, 110)
     expect(index).to eq(6)
   end
+
+  it "Ensure function binarySearch in array search 175 return -1" do
+    array = [10, 20, 30, 50, 60, 80, 110, 130, 140, 170]
+    index = binarySearch(array, 175)
+    expect(index).to eq(-1)
+  end
 end
