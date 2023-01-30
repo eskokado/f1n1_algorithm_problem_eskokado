@@ -23,7 +23,7 @@ describe "Searching Algorithm" do
     end    
     expect(message).to eq("Element is not found")
   end  
-  it "Linear Search with found 110 result index element" do
+  it "Linear Search found 110 in array result index element" do
     array = [10, 20, 80, 30, 60, 50, 110, 100, 130, 170]
     valueSearch = 110
     findIndex = -1
@@ -36,5 +36,19 @@ describe "Searching Algorithm" do
       end
     end    
     expect(message).to eq("Element 110 is present at index 6")
+  end  
+  it "Linear Search element 175 is not present in array" do
+    array = [10, 20, 80, 30, 60, 50, 110, 100, 130, 170]
+    valueSearch = 175
+    findIndex = -1
+    message = "Element 175 is not present in array[]"
+    array.each_with_index do |value, index|
+      if value == valueSearch 
+        findIndex = index
+        message = "Element #{valueSearch} is present at index #{index}"
+        break
+      end
+    end    
+    expect(message).to eq("Element 175 is not present in array[]")
   end  
 end
