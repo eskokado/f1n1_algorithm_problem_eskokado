@@ -1,0 +1,54 @@
+// 20220103094842
+// https://raw.githubusercontent.com/desenvolvendo-me/linguagem_2021_ruby_ideal/release/v0.1/.vscode/launch.json
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start rails server",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/bin/rails",
+      "useBundler": true,
+      "pathToBundler": "${workspaceFolder}/bin/bundle",
+      "showDebuggerOutput": true,
+      "pathToRDebugIDE": "/${workspaceFolder}/bin/rdebug-ide",
+      "args": ["s"]
+    },
+    {
+      "name": "Run tests",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/bin/rspec",
+      "useBundler": true,
+      "pathToBundler": "${workspaceFolder}/bin/bundle",
+      "showDebuggerOutput": true,
+      "pathToRDebugIDE": "/${workspaceFolder}/bin/rdebug-ide",
+      "args": []
+    }
+  ]
+}
+
+// {
+//   // Use o IntelliSense para saber mais sobre os atributos possíveis.
+//   // Focalizar para exibir as descrições dos atributos existentes.
+//   // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+//   "version": "0.2.0",
+//   "configurations": [
+//     {
+//       "type": "rdbg",
+//       "name": "Debug current file with rdbg",
+//       "request": "launch",
+//       "script": "${file}",
+//       "args": [],
+//       "askParameters": true
+//     },
+//     {
+//       "type": "rdbg",
+//       "name": "Attach with rdbg",
+//       "request": "attach"
+//     }
+//   ]
+// }
