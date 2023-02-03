@@ -1,20 +1,4 @@
-# def countSort(arr)
-#   int n = arr.size
-#   output = Array.new[n]
-#   count = Array.new[256, 0]
-
-#   for i in 0..(n -1)
-#     count[arr[i]] += 1
-#   end
-
-#   arr.to_enum.with_index.reverse_each do |value, index|
-#     output[count[arr[index]] - min] - 1] = arr[index]
-#     count[arr[index] -min] -= 1
-#   end
-
-# end
-
-def countSort(arr) 
+def countSort(arr)
   max = arr.max()
   min = arr.min()
   range = max - min + 1
