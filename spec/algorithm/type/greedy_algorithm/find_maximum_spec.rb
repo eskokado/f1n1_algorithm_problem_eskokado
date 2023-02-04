@@ -53,4 +53,18 @@ describe "Find maximum sum" do
 
     expect(result).to eq(5)
   end
+
+  it "Given three stacks of the positive numbers, the task is to find the possible equal maximum sum of the stacks with the removal of top elements allowed" do
+    stack1 = [3, 10]
+    stack2 = [4, 5]
+    stack3 = [2, 1]
+    n1 = stack1.size
+    n2 = stack2.size
+    n3 = stack3.size
+
+    result = find_maximum(stack1, stack2, stack3, n1, n2, n3)
+
+    expect(result).to eq(0)
+  end
+
 end
