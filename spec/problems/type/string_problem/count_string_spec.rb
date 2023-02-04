@@ -28,6 +28,18 @@ def count_number(str)
   result
 end
 
+def count_special(str)
+  result = 0
+  for i in 0..(str.size - 1)
+    if str[i] >= '0' && str[i] <= '9' || str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'A' && str[i] <= 'Z'
+      result += 0
+    else
+      result += 1
+    end
+  end
+  result
+end
+
 describe "Count string" do
   str = "#GeeKs01fOr@gEEks07"
   it "Ensure count char upper in string" do
@@ -45,4 +57,8 @@ describe "Count string" do
     expect(number).to eq(4)
   end
 
+  it "Ensure count character special in string" do
+    special = count_special(str)
+    expect(special).to eq(2)
+  end
 end
