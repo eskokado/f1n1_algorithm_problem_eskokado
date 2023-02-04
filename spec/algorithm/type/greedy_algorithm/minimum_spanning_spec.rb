@@ -10,11 +10,11 @@ class Graph
     end
   end
 
-  def find(subsets, i)
-    if (subsets[i].parent != i)
-      subsets[i].parent = find(subsets, subsets[i].parent)
+  def find(subsets, x)
+    unless subsets[x].parent == x
+      subsets[x].parent = find(subsets, subsets[x].parent)
     end
-    return subsets[i].parent
+    subsets[x].parent
   end
 
   def Union(subsets, x, y)
@@ -23,7 +23,7 @@ class Graph
 
     if subsets[xroot].rank < subsets[yroot].rank
       subsets[xroot].parent = yroot
-    elsif  subsets[xroot].rank > subsets[yroot].rank
+    elsif subsets[yroot].rank < subsets[xroot].rank
       subsets[yroot].parent = xroot
     else
       subsets[yroot].parent = xroot
@@ -49,25 +49,27 @@ class Graph
     while e < (@V - 1) do
       next_edge = Edge.new
       next_edge = edge[i]
+      i += 1
 
       x = find(subsets, next_edge.src)
       y = find(subsets, next_edge.dest)
 
       if x != y
         result[e] = next_edge
-        Union(subsets, x, y)
         e += 1
+        Union(subsets, x, y)
       end
-      i += 1
     end
 
-    puts "Following are the edges in the constructed MST"
+    textResult = "Following are the edges in the constructed MST\n"
     minimumCost = 0
     for i in 0.. e - 1
-      puts "#{result[i].src} -- #{result[i].dest} == #{result[i].weight}"
+      textResult += "#{result[i].src} -- #{result[i].dest} == #{result[i].weight}\n"
       minimumCost += result[i].weight
     end
-    puts "Minimum Cost Spanning Tree: #{minimumCost}"
+    textResult += "Minimum Cost Spanning Tree: #{minimumCost}\n"
+
+    return textResult
   end
 
 end
@@ -113,6 +115,13 @@ describe "Minimum Spanning" do
     graph.edge[4].dest = 3
     graph.edge[4].weight = 4
 
-    graph.KruskalMST()
+    textResult = graph.KruskalMST()
+
+    puts textResult
+
+    expect(textResult).to be_include("2 -- 3 == 4")
+    expect(textResult).to be_include("0 -- 3 == 5")
+    expect(textResult).to be_include("0 -- 1 == 10")
+    expect(textResult).to be_include("Minimum Cost Spanning Tree: 19")
   end
 end
