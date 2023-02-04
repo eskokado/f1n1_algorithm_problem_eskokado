@@ -18,6 +18,15 @@ def count_lower(str)
   result
 end
 
+def count_number(str)
+  result = 0
+  for i in 0..(str.size - 1)
+    if str[i] >= '0' && str[i] <= '9'
+      result += 1
+    end
+  end
+  result
+end
 
 describe "Count string" do
   str = "#GeeKs01fOr@gEEks07"
@@ -27,7 +36,13 @@ describe "Count string" do
   end
 
   it "Ensure count char lower in string" do
-    upper = count_lower(str)
-    expect(upper).to eq(8)
+    lower = count_lower(str)
+    expect(lower).to eq(8)
   end
+
+  it "Ensure count number in string" do
+    number = count_number(str)
+    expect(number).to eq(4)
+  end
+
 end
